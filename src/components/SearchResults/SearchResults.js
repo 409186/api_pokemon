@@ -1,10 +1,8 @@
 import React from 'react';
+import { firstLetterMayus } from './SearchResults.utils'
 import "./SearchResults.css"
 
 const SearchResults = ({ results, infoPokemon }) => {
-  function firstLetterMayus(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1);
-  }
   return (
     <div>
       <div className='title_pokemon'>
@@ -15,7 +13,7 @@ const SearchResults = ({ results, infoPokemon }) => {
         ))}
       </div>
       <div>
-        {results.length === 1 && (
+        {results.length === 1 && infoPokemon && (
           <>
             <div className='info_weight'>
               <p>Weight: </p> {infoPokemon.weight}
@@ -24,7 +22,7 @@ const SearchResults = ({ results, infoPokemon }) => {
               <p>Types:</p>
               <div>
                 {infoPokemon.types.map((type) => (
-                  <li>{firstLetterMayus(type.type.name)}</li>
+                  <li key={type.type.name}>{firstLetterMayus(type.type.name)}</li>
                 ))}
               </div>
             </div>

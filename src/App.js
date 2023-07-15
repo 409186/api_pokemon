@@ -1,38 +1,14 @@
 import './App.css';
-import React, { useState, useEffect } from 'react';
-import Searching from './Searching';
-import SearchResults from './SearchResults';
+import React from 'react';
+import Searching from './components/Searching/Searching';
+import SearchResults from './components/SearchResults/SearchResults';
+import { useGetPokemons } from './hook/useGetPokemons';
 
 function App() {
-  const [data, setData] = useState([])
-  const [search, setSearch] = useState('')
-  const [results, setResults] = useState([])
-  const [infoPokemon, setInfoPokemon] = useState([])
-
-  useEffect(() => {
-    fetch('https://pokeapi.co/api/v2/pokemon')
-      .then((responde) => responde.json())
-      .then((info) => setData(info.results))
-
-    const filteredResults = data?.filter(result =>
-      result.name.toLowerCase().includes(search.toLowerCase())
-    );
-
-    setResults(filteredResults)
-  }, [search])
-
+  const { infoPokemon, setSearch, results } = useGetPokemons();
   const handleSearch = (e) => {
     setSearch(e.target.value)
   }
-
-  useEffect(() => {
-    if(results.length === 1){
-      fetch(results[0].url)
-        .then((responde) => responde.json())
-        .then((info) => setInfoPokemon(info))
-    }
-  }, [results])
-
   return (
     <div className="App">
       <h1>Pokémon</h1>
