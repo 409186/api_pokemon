@@ -1,5 +1,10 @@
 .App {
-  text-align: center;
+  text-align: start;
+  margin: 1rem;
+}
+
+h1 {
+  color: #FFCC01;
 }
 
 .App-logo {

@@ -1,0 +1,39 @@
+.title_pokemon{
+    width: 100%;
+    margin-bottom: 2rem;
+    font-size: 25px;
+    font-weight: 900;
+    text-align: center;
+}
+
+.info_weight, .info_types, .info_moves {
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.info_weight p,
+.info_types p,
+.info_moves p,
+.info_sprites p {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.info_sprites {
+    display: flex;
+    align-items: start;
+    gap: 5rem;
+}
+
+.info_image {
+    display: flex;
+    gap: 5rem;
+}
+
+.front_pokemon {
+    width: 10rem;
+    height: 10rem;
+}
